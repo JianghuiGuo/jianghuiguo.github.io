@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://jianghuiguo.github.io</id>
+    <title>Gridea</title>
+    <updated>2020-12-19T15:35:30.244Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://jianghuiguo.github.io"/>
+    <link rel="self" href="https://jianghuiguo.github.io/atom.xml"/>
+    <subtitle>温故而知新</subtitle>
+    <logo>https://jianghuiguo.github.io/images/avatar.png</logo>
+    <icon>https://jianghuiguo.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2020, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[Aache JMeter 起步]]></title>
+        <id>https://jianghuiguo.github.io/post/aache-jmeter-getting-started/</id>
+        <link href="https://jianghuiguo.github.io/post/aache-jmeter-getting-started/">
+        </link>
+        <updated>2020-12-01T15:17:22.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="1-起步">1、起步</h1>
+<h2 id="12-概览">1.2 概览</h2>
+<p>当你使用JMeter时，一般需要按照以下步骤：</p>
+<h3 id="101-构建测试计划">1.0.1 构建测试计划</h3>
+<p>为了构建测试计划，你需要先<a href="#14-%E8%BF%90%E8%A1%8Cjmeter">以GUI模式运行JMeter</a>。</p>
+<p>然后，你可以选择从浏览器或者原生程序录制应用程序。你可以使用这个菜单<code>File</code> -&gt;<code>Templates...</code>-&gt;<code>Recording</code></p>
+<p>请注意，你还可以手动构建测试计划。确保你阅读此<a href="#">文档</a>以理解主要概念。</p>
+<p>你也可以使用以下选项中的一个调来调试它：</p>
+<ul>
+<li>Run -&gt; Start no pauses</li>
+<li>Run -&gt; Start</li>
+<li>Validate on <code>Thread Group</code></li>
+</ul>
+<p>和<a href="#">View Results Tree</a>渲染器和测试器（CSS/JQUERY, JSON,Regexp,XPath）。</p>
+<p>确保你按照<a href="#">最佳实践</a>构建你的测试计划。</p>
+<h3 id="102-运行负载测试">1.0.2 运行负载测试</h3>
+<p>当你准备好测试计划，你可以开始执行负载测试。第一步是配置将会运行JMeter的注入器，这和其他负载测试工具一样包括：</p>
+<ul>
+<li>从CPU、内存和网络方面调整机器配置</li>
+<li>操作系统调优</li>
+<li>配置Java：确保你安装了JMeter支持的最新版Java。</li>
+<li>增大Java堆内存。JMeter默认以1GB的堆内存运行，这可能无法支撑你想运行的测试计划或者你想执行的线程数。</li>
+</ul>
+<p>当所有事情准备妥当，你将使用CLI模式（Command-line 模式以前被称为 <a href="#144-cli%E6%A8%A1%E5%BC%8F%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%A8%A1%E5%BC%8F%E8%A2%AB%E7%A7%B0%E4%B8%BA%E9%9D%9Egui%E6%A8%A1%E5%BC%8F">非GUI模式</a>）来运行JMeter进行负载测试。</p>
+<blockquote>
+<p>不要使用GUI模式运行负载测试！</p>
+</blockquote>
+<p>使用CLI模式，你可以生成包含结果的CSV（或者XML）文件，并让JMeter在测试结束时<a href="#">生成HTML报告</a>。默认情况下，JMeter将在运行时提供负载测试摘要。你也可以在测试期间使用<a href="#">后台监听器</a>获取<a href="#">实时结果</a>。</p>
+<h3 id="103-负载测试分析">1.0.3 负载测试分析</h3>
+<p>当负载测试结束后，你可以使用HMTL报告分析负载测试。</p>
+<h3 id="104-让我们开始">1.0.4 让我们开始</h3>
+<p>开始使用JMeter最简单的方法是首先<a href="http://jmeter.apache.org/download_jmeter.cgi">下载最新的生产版本</a>并安装它。该版本包含了构建和运行大多数类型的测试所需的所有文件，例如Web (HTTP/HTTPS)、FTP、JDBC、LDAP、Java、JUnit等等。<br>
+如果您想要执行JDBC测试，那么当然需要供应商提供适当的JDBC驱动程序。JMeter没有附带任何JDBC应用程序。<br>
+JMeter包含JMS API jar，但不包含JMS客户端实现。如果你希望运行JMS测试，你需要从JMS供应商处下载合适的jar文件。</p>
+<blockquote>
+<p>有关安装附加jar的详细信息，请参阅<a href="#141-jmeter%E7%9A%84classpath">JMeter类路径</a>部分</p>
+</blockquote>
+<p>接下来，运行JMeter并浏览用户指南中的<a href="#">构建测试计划</a>部分，以熟悉JJMeter基础知识（例如，添加和删除元素）。</p>
+<p>最后，浏览有关如何构建特定类型的测试计划的相关章节。例如，如果你对测试Web应用程序感兴趣，那么请参阅<a href="#">构建Web测试计划</a>章节。其他具体的测试计划章节是：</p>
+<ul>
+<li><a href="#">高级Web测试计划</a></li>
+<li><a href="#">JDBC</a></li>
+<li><a href="#">FTP</a></li>
+<li><a href="#">JMS点对点</a></li>
+<li><a href="#">JMS主题</a></li>
+<li><a href="#">LDAP</a></li>
+<li><a href="#">LDAP扩展</a></li>
+<li><a href="#">WebServices(SOAP)</a></li>
+</ul>
+<p>一旦你熟悉了构建和运行JMeter测试计划，你可以查看各种配置元素（timers, listeners, assertions, and others），这些元素可以让你更好的控制测试计划。</p>
+<h2 id="11-要求">1.1 要求</h2>
+<p>JMeter要求你的测试环境满足一些最低要求。</p>
+<h3 id="java-版本">Java 版本</h3>
+<blockquote>
+<p>JMeter兼容Java8或更高版本。出于安全和性能的考虑，我们强烈建议你安装主版本的最新小版本。</p>
+</blockquote>
+<p>因为JMeter只使用标准的Java api，所以如果你的JRE如果因为JRE实现问题无法运行JMeter，请不要提交bug报告。</p>
+<blockquote>
+<p>虽然你可以使用JRE，但是安装JDK会更好，因为要记录HTTPS，JMeter需要JDK重的<code>keytool</code>实用工具。</p>
+</blockquote>
+<h3 id="112-操作系统">1.1.2 操作系统</h3>
+<p>JMeter是一个100%的Java应用程序，应在能在所有兼容Java实现的任何操作系统上正确运行。<br>
+使用JMeter测试的操作系统可以在JMeter wiki的<a href="https://cwiki.apache.org/confluence/display/JMETER/JMeterAndOperatingSystemsTested">这个页面</a>上查看。<br>
+即使你的操作系统没有被列在wiki页面上，假如JVM是兼容的，JMeter应该能在上面运行。</p>
+<h2 id="12-可选">1.2 可选</h2>
+<p>如果你计划进行JMeter开发，那么你将需要下面列出的一个或多个可选包。</p>
+<h3 id="121-java编译器">1.2.1 Java编译器</h3>
+<p>如果你想构建JMeter源代码或者开发JMeter插件，那么你将需要一个完全兼容的JDK 8或者更高版本的JDK。</p>
+<h3 id="122-sax-xml解析器">1.2.2 SAX XML解析器</h3>
+<p>JMeter附带提供了Apache的<a href="http://xml.apache.org">Xerces XML parser</a>。你可以选择让JMeter使用不同的XML解析器。为此，在<a href="#141-jmeter%E7%9A%84classpath">JMeter的类路径</a>中配置第三方解析器的类，并且更新包含完整的解析器实现类名的<a href="#15-%E9%85%8D%E7%BD%AEjmeter">jmeter.properties</a>文件。</p>
+<h3 id="123-email支持">1.2.3 Email支持</h3>
+<p>JMeter具有大量的邮件功能。它可以基于测试结果发邮件，并有一个POP3(S)/IMAP(S)取样器。它也有一个SMTP(S)取样器。</p>
+<h3 id="124-ssl加密">1.2.4 SSL加密</h3>
+<p>为了测试使用SSL加密（HTTPS）的web服务，JMeter要求像Sun Java 1.4或更高版本那样提供SSL的实现。如果你的Java版本不支持SSL，那可以添加外部实现。在JMeter的类路径中包含必要的加密包。同时，更新<a href="#15-%E9%85%8D%E7%BD%AEjmeter">system.properties</a>文件以注册SSL实现。</p>
+<p>JMeter HTTP默认为协议级别TLS。这可以通过编辑<code>jmeter.properties</code>或 <code>user.properties</code>文件中的<code>https.default.protocol</code>配置项来更改。</p>
+<p><strong>JMeter HTTP采样器被配置为接受所有证书，无论是否可信，无论有效期等等。</strong> 这使得测试服务器具有最大的灵活性。</p>
+<p>如果服务端要求提供客户端证书，则可以提供该证书。</p>
+<p>还有<a href="#">SSL Manager</a> ，用来更好地控制证书。</p>
+<blockquote>
+<p>JMete代理服务（看下面）支持记录HTTPS（SSL）。<br>
+SMTP采样器可以选择使用本地信任存储区或信任所有证书。</p>
+</blockquote>
+<h3 id="125-jdbc驱动程序">1.2.5 JDBC驱动程序</h3>
+<p>如果你想测试JDBC，你需要在<a href="#141-jmeter%E7%9A%84classpath">类路径</a>中增加相应数据库的驱动。确保文件是jar文件，而不是zip文件。</p>
+<h3 id="126-jms客户端">1.2.6 JMS客户端</h3>
+<p>JMeter包含了Apache Geronimo的JMS API，所以你只需要增加合适的JMS客户端实现的jar包。详细资料请查看它们的文档。<a href="https://cwiki.apache.org/confluence/display/JMETER/Home">JMeter Wiki</a>上也有一些信息。</p>
+<h3 id="127-activemq-jms-库">1.2.7 ActiveMQ JMS 库</h3>
+<p>你需要在你的类路径中增加<code>activemq-all-X.X.X.jar</code>jar包，例如，将其存储在<code>lib/</code>目录中。<br>
+有关详细信息，请参阅<a href="http://activemq.apache.org/initial-configuration.html">ActiveMQ initial configuration page</a>。</p>
+<blockquote>
+<p>有关安装附加jar的更多细节，请参阅<a href="#141-jmeter%E7%9A%84classpath">JMeter类路径</a>部分。</p>
+</blockquote>
+<h2 id="13-安装">1.3 安装</h2>
+<p>我们建议大多数用户运行<a href="http://jmeter.apache.org/download_jmeter.cgi">最新版本</a>。<br>
+要安装发布版本，只需将zip/tar文件解压缩到你希望安装JMeter的目录中。只要正确安装了JRE/JDK并配置了JAVA_HOME环境变量，就不需要再做什么了。</p>
+<blockquote>
+<p>如果目录路径包含空格，可能会出现问题（特别是在client-server模式下）。</p>
+</blockquote>
+<p>安装目录结构看起来应该像这样（其中X.Y是版本号）：</p>
+<pre><code>apache-jmeter-X.Y
+apache-jmeter-X.Y/bin
+apache-jmeter-X.Y/docs
+apache-jmeter-X.Y/extras
+apache-jmeter-X.Y/lib/
+apache-jmeter-X.Y/lib/ext
+apache-jmeter-X.Y/lib/junit
+apache-jmeter-X.Y/licenses
+apache-jmeter-X.Y/printable_docs
+</code></pre>
+<p>如果你愿意，可以重命名父目录（也就是<code>apache-jmeter-X.Y</code>），但不要更改任何子目录的名称。</p>
+<h2 id="14-运行jmeter">1.4 运行JMeter</h2>
+<p>执行<code>jmeter.bat</code>（对于Windows）或<code>jmeter</code>（对于Unix）文件来运行JMeter。这些文件可以在<code>bin</code>目录中找到。不久，就出现JMeter GUI。</p>
+<blockquote>
+<p>GUI模式只能用于创建测试脚本，CLI模式（非GUI）必须用于负载测试。</p>
+</blockquote>
+<p>在<code>bin</code>目录中你可能会发现其它有用的脚本。WIndows 脚本文件（.CMD文件需要Win2K或更高）：</p>
+<ul>
+<li>jmeter.bat<br>
+运行JMeter（默认为GUI模式）</li>
+<li>jmeterw.cmd<br>
+在没用Windows shell控制台的情况下运行JMeter（默认为GUI模式）</li>
+<li>jmeter-n.cmd<br>
+在上面拖放一个JMX文件以运行CLI模式测试</li>
+<li>jmeter-n-r.cmd<br>
+在上面拖放一个JMX文件以远程运行CLI模式测试</li>
+<li>jmeter-t.cmd<br>
+在上面拖放一个JMX文件，以GUI模式加载它</li>
+<li>jmeter-server.bat<br>
+在server模式下启动JMeter</li>
+<li>mirror-server.cmd<br>
+以CLI模式运行JMeter镜像服务器</li>
+<li>shutdown.cmd<br>
+运行Shutdown客户端优雅地停止CLI模式实例</li>
+<li>stoptest.cmd<br>
+运行Shutdown客户端突然停止CLI模式实例</li>
+</ul>
+<blockquote>
+<p>特殊名称 <code>LAST</code>可以和<code>jmeter-n.cmd</code>、<code>jmeter-t.cmd</code>以及<code>jmeter-n-r.cmd</code>一起运行，表示以交互模式运行最后一个测试计划。</p>
+</blockquote>
+<p>有一些环境变量可以用来定制JMeter的JVM配置。一种简单的方式是在<code>bin</code>中创建名为<code>setenv.bat</code>文件。这个文件像：</p>
+<pre><code>rem This is the content of bin\setenv.bat,
+rem it will be called by bin\jmeter.bat
+
+set JVM_ARGS=&quot;-Xms1024m -Xmx1024m -Dpropname=value&quot;
+</code></pre>
+<p><code>JVM_ARGS</code>可以在启动JMeter启动时覆盖<code>jmeter.bat</code>中的JVM配置。</p>
+<pre><code>jmeter -t text.jmx ...
+</code></pre>
+<p>可以定义以下环境变量：</p>
+<ul>
+<li>DDRAW<br>
+影响直接绘制使用的JVM配置项，例如 <code>-Dsun.java2d.ddscale=true</code>。默认为空</li>
+<li>GC_ALGO<br>
+JVM垃圾收集器配置项。默认为<code>-XX:+UseG1GC -XX:MaxGCPauseMillis=250 -XX:G1ReservePercent=20</code></li>
+<li>HEAP<br>
+启动JMeter时使用的JVM内存配置项。默认为<code>-Xms1g -Xmx1g -XX:MaxMetaspaceSize-256m</code></li>
+<li>JMETER_BIN<br>
+JMeter bin目录（必须以<code>\</code>结尾）。当<code>setenv.bat</code>被调用时，值已经被猜中。</li>
+<li>JMETER_COMPILE_ARGS<br>
+如果选项被设置，只会使用JVM_ARGS和JMETER_OPTS。所有其它像<code>HEAP</code>和<code>GC_ALGO</code>这种选项都会被忽略。默认为空。</li>
+<li>JMETER_HOME<br>
+安装目录。将会从<code>jmeter.bat</code>文件位置猜测</li>
+<li>JMETER_LANGUAGE<br>
+指定使用语言的Java运行时配置项。默认为：<code>-Duser.language=&quot;en&quot; -Duser.region=&quot;EN&quot;</code></li>
+<li>JM_LAUNCH<br>
+Java可执行文件的名称，像<code>java.exe</code>（默认）或者<code>javaw.exe</code></li>
+<li>JVM_ARGS<br>
+JMeter启动时用到的Java配置项。这些会最后添加到java命令中。默认为空。</li>
+</ul>
+<p>Un*x 脚本文件。可以在大多数Linux/Unix系统上运行：</p>
+<ul>
+<li>jmeter<br>
+运行JMeter（默认为GUI模式）。定义了一些可能不适用于所有JVM的JVM设置。</li>
+<li>jmeter-server<br>
+以Server模式启动JMeter（使用适当的参数调用jmeter脚本）</li>
+<li>jmeter.sh<br>
+非常基础的JMeter脚本（你可能需要调整JVM配置项，比如内存设置）。</li>
+<li>mirror-server.sh<br>
+以CLI模式运行JMeter镜像服务器</li>
+<li>shutdown.sh<br>
+运行Shutdown客户端优雅地停止CLI模式实例</li>
+<li>stoptest.sh<br>
+运行Shutdown客户端突然停止CLI模式实例</li>
+</ul>
+<p>可能需要设置一些环境变量来配置JMeter使用的JVM。这些变量可以在启动<code>jmeter</code>脚本的shell中直接设置。例如，设置变量JVM_ARGS将覆盖大多数预定义设置，例如</p>
+<pre><code class="language-shell">JVM_ARGS=&quot;-Xms1024m -Xmx1024m&quot; jmeter -t test.jmx [etc.]
+</code></pre>
+<p>将会覆盖脚本中的HEAP设置。</p>
+<p>要永久的设置这些变量，你可以把它们配置在<code>bin</code>目录中的<code>setenv.sh</code>文件里。这个文件在使用<code>jmeter</code>脚本启动JMeter时被调用。以下是<code>bin/setenv.sh</code>的例子：</p>
+<pre><code class="language-shell"># This is the file bin/setenv.sh,
+# it will be sourced in by bin/jmeter
+
+# Use a bigger heap, but a smaller metaspace, than the default
+export HEAP=&quot;-Xms1G -Xmx1G -XMaxMetaspaceSize=192m&quot;
+
+# Try to guess the locale from the OS. The space as value is on purpose!
+export JMETER_LANGUAGE=&quot; &quot;
+</code></pre>
+<p>可以定义以下环境变量：</p>
+<ul>
+<li>GC_ALGO<br>
+用来配置JVM垃圾收集算法的Java运行时配置项。默认为：<code>-XX:+UseG1GC -XX:MaxGCPauseMillis=250 -XX:G1ReservePercent=20</code></li>
+<li>HEAP<br>
+启动JMeter时用来管理内存的Java运行时配置项。默认为：<code>-Xms1g -Xmx1g -X:MaxMetaspaceSize=256</code></li>
+<li>JAVA_HOME<br>
+必须指向你的JDK安装目录。使用<code>debug</code>参数运行。在一些操作系统中，JMeter会尽可能猜测JVM的位置。</li>
+<li>JMETER_COMPLETE_ARGS<br>
+如果选项被设置，只会使用JVM_ARGS和JMETER_OPTS。所有其它像<code>HEAP</code>和<code>GC_ALGO</code>这种选项都会被忽略。默认为空。</li>
+<li>JMETER_HOME<br>
+可以指向你的JMeter安装目录。如果不设置，它会相对于<code>jmeter</code>脚本进行设置。</li>
+<li>JMETER_LANGUAGE<br>
+指定使用语言的Java运行时配置项。默认为：<code>-Duser.language=&quot;en&quot; -Duser.region=&quot;EN&quot;</code></li>
+<li>JMETER_OPTS<br>
+启动JMeter时使用的Java运行时配置项。JMeter可以为操作系统增加特殊配置项。</li>
+<li>JRE_HOME<br>
+必须指向你的Java运行时安装目录。如果为空，默认值为<code>JAVA_HOME</code>。如果<code>JRE_HOME</code>和<code>JAVA_HOME</code>都为空，JMeter会尽力猜测<code>JAVA_HOME</code>。如果<code>JRE_HOME</code>和<code>JAVA_HOME</code>都设置了，将会使用<code>JAVA_HOME</code>。</li>
+<li>JVM_ARGS<br>
+启动JMeter时用到的Java配置项。这些参数会在<code>JMETER_OPTS</code>之前和其它JVM配置项之后被添加。默认为空。</li>
+</ul>
+<h3 id="141-jmeter的classpath">1.4.1 JMeter的Classpath</h3>
+<p>JMeter自动从以下目录中的jar包里寻找类：</p>
+<ul>
+<li>JMETER_HOME/lib<br>
+用于utility jars</li>
+<li>JMETER_HOME/lib/ext<br>
+用于JMeter组件和插件</li>
+</ul>
+<p>如果你开发了一个新的JMeter组件，你应该打包它们并拷贝打包好的jar包到JMeter的<code>lib/ext</code>目录。JMeter会自动找到这些jar包里的JMeter组件。不要使用针对实用jar包的<code>lib/ext</code>或者被插件使用的依赖jar包。它只适用于JMeter组件和插件。</p>
+<p>如果你不想将JMeter插件jar包放在<code>lib/ext</code>目录，那么在<code>jmeter.properties</code>文件中定义<code>search_paths</code>。</p>
+<p>实用工具和依赖jar包（库等）可以放在<code>lib</code>目录。</p>
+<p>如果你不想将这些jar包放到lib目录，那么在<code>jmeter.properties</code>文件中定义<code>user.classpath</code>或<code>plugin_dependency_paths</code>属性。见下文对差异的解释。</p>
+<p>其它jar包（像JDBC、JMS实现和JMeter代码需要的其它任何支持库）都应该放在<code>lib</code>目录，而不是<code>lib/ext</code>目录，或者添加到<code>user.classpath</code>。</p>
+<blockquote>
+<p>JMeter只会寻找<code>.jar</code>文件，而不是<code>.zip</code>文件。</p>
+</blockquote>
+<p>你也可以在<code>$JAVA_HOME/jre/lib/ext</code>文件中安装实用Jar文件，或者你也可以在<code>jmeter.properties</code>文件中设置<code>user.classpath</code>属性。</p>
+<p>注意，设置<code>CLASSPATH</code>环境变量不会产生任何效果。这是因为JMeter是通过&quot;<code>java -jar</code>&quot;启动的，当时用<code>-jar</code>时，这个java命令会默默的忽略<code>CLASSPATH</code>参数和<code>-classpath/-cp</code>配置项。</p>
+<blockquote>
+<p>这种情况发生在所有的Java程序中，而不仅仅是JMeter。</p>
+</blockquote>
+<h3 id="142-从模版创建测试计划">1.4.2 从模版创建测试计划</h3>
+<p>你可以从现有模版创建一个新的测试计划。<br>
+你可以使用菜单<code>File</code>-&gt;<code>Templates...</code>或者模版图标：<br>
+<img src="https://jmeter.apache.org/images/screenshots/template_menu.png" alt="模版图标" loading="lazy"></p>
+<p>出现一个弹出窗口，然后你可以在列表中选择一个模板:<br>
+<img src="https://jmeter.apache.org/images/screenshots/template_wizard.png" alt="Templates popup" loading="lazy"><br>
+有些模版可能需要用户输入参数。对于这些模版来说，点击创建按钮后，会出现像下面一样的新的窗口：<br>
+<img src="https://jmeter.apache.org/images/screenshots/templates/template_parameters.png" alt="Parameters window" loading="lazy"><br>
+当你填完参数后，点击<code>Validate</code>按钮，模版就会被创建。<br>
+每个模板的文档说明了从模板创建测试计划后要做什么。</p>
+<blockquote>
+<p>你可以根据<a href="#">这里</a>的文档来创建自己的模版</p>
+</blockquote>
+<h3 id="143-在代理后使用jmeter">1.4.3 在代理后使用JMeter</h3>
+<p>如果你在防火墙/代理服务器后面测试，你可能需要为JMeter提供防火墙/代理服务器的hostname和端口号。为此，使用以下命令行参数运行<code>jmeter[.bat]</code>文件：</p>
+<ul>
+<li>-E<br>
+[使用的代理模式 - 可选 - 为非http]</li>
+<li>-H<br>
+[代理服务器hostname或ip地址]</li>
+<li>-P<br>
+[代理服务器端口]</li>
+<li>-N<br>
+[nonproxy hosts]（例如，<code>*.apache.org|localhost</code>）</li>
+<li>-u<br>
+[代理身份验证的用户名 - 如果需要]</li>
+<li>-a<br>
+[代理身份验证的密码 - 如果需要]</li>
+</ul>
+<p><strong>示例：</strong></p>
+<pre><code class="language-shell">jmeter -E https -H my.proxy.server -P 8000 -u username -a password -N localhost
+</code></pre>
+<p>你也可以使用<code>--proxyScheme</code>、<code>--proxyHost</code>、<code>--proxyPort</code>、<code>--username</code>和<code>--password</code>作为参数名</p>
+<blockquote>
+<p>命令行提供的参数对系统上的其它用户可能是可见的。</p>
+</blockquote>
+<p>如果提供了代理方案，JMeter会设置以下系统属性：</p>
+<ul>
+<li><code>http.proxyScheme</code></li>
+</ul>
+<p>如果提供了代理主机和端口，JMeter会设置以下系统属性：</p>
+<ul>
+<li><code>http.proxyHost</code></li>
+<li><code>http.proxyPort</code></li>
+<li><code>https.proxyHost</code></li>
+<li><code>https.proxyPort</code></li>
+</ul>
+<p>代理使用的用户和密码可以由系统属性<code>http.proxyUser</code>和<code>http.proxyUser</code>设置(<strong>此处应该是官方文档错误</strong>)。 它们将被上述在HTTP采样器中设置的参数或值覆盖。</p>
+<p>如果提供了一个非代理主机列表，JMeter会设置以下系统属性：</p>
+<ul>
+<li><code>http.nonPorxyHosts</code></li>
+<li><code>https.nonPorxyHosts</code></li>
+</ul>
+<p>如果你不想同时设置http和https代理，你可以在<code>system.properties</code>中定义相关属性来代替使用命令行参数。</p>
+<p>测试计划中也可以定义代理设置，使用<a href="https://jmeter.apache.org/usermanual/component_reference.html#HTTP_Request_Defaults">HTTP Request Defaults</a>或者<a href="https://jmeter.apache.org/usermanual/component_reference.html#HTTP_Request">HTTP Request</a>采样器。</p>
+<blockquote>
+<p>JMeter也有自己内置的代理服务，<a href="https://jmeter.apache.org/usermanual/component_reference.html#HTTP(S)_Test_Script_Recorder">HTTP(S) Test Script Recorder</a>。这个仅用来记录HTTP或者HTTPS的浏览器会话。当JMeter本身进行HTTP或HTTPS请求时使用代理设置，不要将此与上面描述的代理设置混淆。</p>
+</blockquote>
+<h3 id="144-cli模式命令行模式被称为非gui模式">1.4.4 CLI模式（命令行模式被称为非GUI模式）</h3>
+<p>对于负载测试，你必须以这种模式运行JMeter（无GUI）以获得最佳结果。要做到这一点，使用以下命令选项：</p>
+<ul>
+<li>-n<br>
+指定JMeter以cli模式运行</li>
+<li>-t<br>
+[包含测试计划的JMX文件名]</li>
+<li>-l<br>
+[用来记录sample结果的JTL文件名称]</li>
+<li>-j<br>
+[JMeter运行日志文件名]</li>
+<li>-r<br>
+在JMeter属性&quot;<code>remote_hosts</code>&quot;指定的服务器中运行测试</li>
+<li>-R<br>
+[远程服务器列表] 在指定的远程服务器中运行测试</li>
+<li>-g<br>
+[CSV文件路径] 只生成报告dashboard</li>
+<li>-e</li>
+<li>-o</li>
+<li>-H</li>
+<li>-P</li>
+</ul>
+<h3 id="145-服务模式">1.4.5 服务模式</h3>
+<h3 id="146-通过命令行重写属性">1.4.6 通过命令行重写属性</h3>
+<h3 id="147-日志记录和错误信息">1.4.7 日志记录和错误信息</h3>
+<h3 id="148-命令行选项的完整列表">1.4.8 命令行选项的完整列表</h3>
+<h3 id="149-命令行模式关闭">1.4.9 命令行模式关闭</h3>
+<h2 id="15-配置jmeter">1.5 配置JMeter</h2>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Apache JMeter]]></title>
+        <id>https://jianghuiguo.github.io/post/apache-jmeter/</id>
+        <link href="https://jianghuiguo.github.io/post/apache-jmeter/">
+        </link>
+        <updated>2020-11-27T08:42:19.000Z</updated>
+        <summary type="html"><![CDATA[<p>Apache JMeter™ 是一款纯Java语言开发，旨在加载测试功能行为和衡量性能的开源软件。它最初是为测试Web应用程序设计的，但已经扩展到其他测试功能。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>Apache JMeter™ 是一款纯Java语言开发，旨在加载测试功能行为和衡量性能的开源软件。它最初是为测试Web应用程序设计的，但已经扩展到其他测试功能。</p>
+<!-- more -->
+<h2 id="我可以用它做什么">我可以用它做什么</h2>
+<p>Apache JMeter 可以用来测试静态资源、动态资源以及Web动态应用程序的性能。<br>
+它可以用来模拟一个服务器、一组服务器、网络或者对象上的高负载，以测试其强度或分子不通负载类型下的总体性能。</p>
+<p>Apache JMeter功能包括：</p>
+<ul>
+<li>能够负载和性能测试很多不同的应用程序/服务器/协议类型：
+<ul>
+<li>Web - HTTP, HTTPS (Java, NodeJS, PHP, ASP.NET, …)</li>
+<li>SOAP / REST Webservices</li>
+<li>FTP</li>
+<li>Database via JDBC</li>
+<li>LDAP</li>
+<li>Message-oriented middleware (MOM) via JMS</li>
+<li>Mail - SMTP(S), POP3(S) and IMAP(S)</li>
+<li>Native commands or shell scripts</li>
+<li>TCP</li>
+<li>Java Objects</li>
+</ul>
+</li>
+<li>功能齐全的测试IDE，允许快速记录测试计划（从浏览器或本机应用程序）、构建和调试。</li>
+<li>CLI模式(命令行模式(以前称为非GUI模式)/ headless模式)从任何Java兼容的OS (Linux, Windows,    Mac OSX，…) 加载测试。</li>
+<li>随时呈现一个完整的动态HTML报告</li>
+<li>可以轻松的从大多数流行的响应格式（HTML，JSON，XML或者任何文本格式）中提取数据</li>
+<li>完整的可移植性和100%纯Java</li>
+<li>完整的多线程框架允许多个线程并发采样，并允许不同的线程组同时采样不同的函数。</li>
+<li>缓存和离线分析/回放测试结果。</li>
+<li>高度可扩展的核心:
+<ul>
+<li>可插拔取样器允许无限的测试能力。</li>
+<li>可编写脚本的采样器(兼容jsr223的语言，如Groovy和BeanShell)</li>
+<li>可插拔计时器可选择多种负载统计</li>
+<li>数据分析和可视化插件允许极大的扩展性和个性化。</li>
+<li>函数可用于为测试提供动态输入或提供数据操作。</li>
+<li>通过第三方开源库Maven, Gradle和Jenkins轻松持续集成。</li>
+</ul>
+</li>
+</ul>
+<h2 id="我该怎么做">我该怎么做？</h2>
+<ul>
+<li><code>使用JMeter</code>了解如何使用它</li>
+<li><code>组件参考</code>为每个测试元素提供详细的信息</li>
+<li><code>函数参考</code>为每个函数提供详细信息和案例</li>
+<li><code>属性参考</code>包含允许你自定JMeter的所有属性</li>
+<li>Javadoc API documentation</li>
+<li>JMeter FAQ（Wiki）</li>
+<li>JMeter Wiki</li>
+<li>构建用于高级使用的<code>JMeter和附加组件</code></li>
+</ul>
+<h2 id="jmeter不是浏览器">JMeter不是浏览器</h2>
+<p>JMeter不是浏览器，它工作在协议层。就web-service和远程服务而言，JMeter像一个浏览器（更准确的说，像多个浏览器）；然后JMeter并不会执行浏览器支持的所有操作。特别是，JMeter不会执行HTML页面中的Javascript。它也不会像浏览器那样渲染HTML页面（可以以HTML等形式查看响应，但是时间不包含在任何示例中，而且每次只显示一个线程中的一个示例）</p>
+<h2 id="教程">教程</h2>
+<ul>
+<li>分布式测试</li>
+<li>记录测试</li>
+<li>JUnit取样器</li>
+<li>访问日志取样器</li>
+<li>扩展JMeter</li>
+</ul>
+]]></content>
+    </entry>
+</feed>

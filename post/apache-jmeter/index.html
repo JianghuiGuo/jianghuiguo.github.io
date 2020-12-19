@@ -1,0 +1,274 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Apache JMeter | Gridea</title>
+<link rel="shortcut icon" href="https://jianghuiguo.github.io/favicon.ico?v=1608392127249">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://jianghuiguo.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="Apache JMeter | Gridea - Atom Feed" href="https://jianghuiguo.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="Apache JMeter™ 是一款纯Java语言开发，旨在加载测试功能行为和衡量性能的开源软件。它最初是为测试Web应用程序设计的，但已经扩展到其他测试功能。
+
+我可以用它做什么
+Apache JMeter 可以用来测试静态资源、动态资源..." />
+    <meta name="keywords" content="JMeter,翻译" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://jianghuiguo.github.io">
+  <img class="avatar" src="https://jianghuiguo.github.io/images/avatar.png?v=1608392127249" alt="">
+  </a>
+  <h1 class="site-title">
+    Gridea
+  </h1>
+  <p class="site-description">
+    温故而知新
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+      
+        <a href="https://jianghuiguo.github.io/post/xiao-shuo" class="menu">
+          小说
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/JianghuiGuo" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Apache JMeter
+            </h2>
+            <div class="post-info">
+              <span>
+                2020-11-27
+              </span>
+              <span>
+                3 min read
+              </span>
+              
+                <a href="https://jianghuiguo.github.io/tag/8lLhGX3-B/" class="post-tag">
+                  # JMeter
+                </a>
+              
+                <a href="https://jianghuiguo.github.io/tag/htYjrZrGG5/" class="post-tag">
+                  # 翻译
+                </a>
+              
+            </div>
+            
+              <img class="post-feature-image" src="https://jianghuiguo.github.io/post-images/apache-jmeter.svg" alt="">
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p>Apache JMeter™ 是一款纯Java语言开发，旨在加载测试功能行为和衡量性能的开源软件。它最初是为测试Web应用程序设计的，但已经扩展到其他测试功能。</p>
+<!-- more -->
+<h2 id="我可以用它做什么">我可以用它做什么</h2>
+<p>Apache JMeter 可以用来测试静态资源、动态资源以及Web动态应用程序的性能。<br>
+它可以用来模拟一个服务器、一组服务器、网络或者对象上的高负载，以测试其强度或分子不通负载类型下的总体性能。</p>
+<p>Apache JMeter功能包括：</p>
+<ul>
+<li>能够负载和性能测试很多不同的应用程序/服务器/协议类型：
+<ul>
+<li>Web - HTTP, HTTPS (Java, NodeJS, PHP, ASP.NET, …)</li>
+<li>SOAP / REST Webservices</li>
+<li>FTP</li>
+<li>Database via JDBC</li>
+<li>LDAP</li>
+<li>Message-oriented middleware (MOM) via JMS</li>
+<li>Mail - SMTP(S), POP3(S) and IMAP(S)</li>
+<li>Native commands or shell scripts</li>
+<li>TCP</li>
+<li>Java Objects</li>
+</ul>
+</li>
+<li>功能齐全的测试IDE，允许快速记录测试计划（从浏览器或本机应用程序）、构建和调试。</li>
+<li>CLI模式(命令行模式(以前称为非GUI模式)/ headless模式)从任何Java兼容的OS (Linux, Windows,    Mac OSX，…) 加载测试。</li>
+<li>随时呈现一个完整的动态HTML报告</li>
+<li>可以轻松的从大多数流行的响应格式（HTML，JSON，XML或者任何文本格式）中提取数据</li>
+<li>完整的可移植性和100%纯Java</li>
+<li>完整的多线程框架允许多个线程并发采样，并允许不同的线程组同时采样不同的函数。</li>
+<li>缓存和离线分析/回放测试结果。</li>
+<li>高度可扩展的核心:
+<ul>
+<li>可插拔取样器允许无限的测试能力。</li>
+<li>可编写脚本的采样器(兼容jsr223的语言，如Groovy和BeanShell)</li>
+<li>可插拔计时器可选择多种负载统计</li>
+<li>数据分析和可视化插件允许极大的扩展性和个性化。</li>
+<li>函数可用于为测试提供动态输入或提供数据操作。</li>
+<li>通过第三方开源库Maven, Gradle和Jenkins轻松持续集成。</li>
+</ul>
+</li>
+</ul>
+<h2 id="我该怎么做">我该怎么做？</h2>
+<ul>
+<li><code>使用JMeter</code>了解如何使用它</li>
+<li><code>组件参考</code>为每个测试元素提供详细的信息</li>
+<li><code>函数参考</code>为每个函数提供详细信息和案例</li>
+<li><code>属性参考</code>包含允许你自定JMeter的所有属性</li>
+<li>Javadoc API documentation</li>
+<li>JMeter FAQ（Wiki）</li>
+<li>JMeter Wiki</li>
+<li>构建用于高级使用的<code>JMeter和附加组件</code></li>
+</ul>
+<h2 id="jmeter不是浏览器">JMeter不是浏览器</h2>
+<p>JMeter不是浏览器，它工作在协议层。就web-service和远程服务而言，JMeter像一个浏览器（更准确的说，像多个浏览器）；然后JMeter并不会执行浏览器支持的所有操作。特别是，JMeter不会执行HTML页面中的Javascript。它也不会像浏览器那样渲染HTML页面（可以以HTML等形式查看响应，但是时间不包含在任何示例中，而且每次只显示一个线程中的一个示例）</p>
+<h2 id="教程">教程</h2>
+<ul>
+<li>分布式测试</li>
+<li>记录测试</li>
+<li>JUnit取样器</li>
+<li>访问日志取样器</li>
+<li>扩展JMeter</li>
+</ul>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E6%88%91%E5%8F%AF%E4%BB%A5%E7%94%A8%E5%AE%83%E5%81%9A%E4%BB%80%E4%B9%88">我可以用它做什么</a></li>
+<li><a href="#%E6%88%91%E8%AF%A5%E6%80%8E%E4%B9%88%E5%81%9A">我该怎么做？</a></li>
+<li><a href="#jmeter%E4%B8%8D%E6%98%AF%E6%B5%8F%E8%A7%88%E5%99%A8">JMeter不是浏览器</a></li>
+<li><a href="#%E6%95%99%E7%A8%8B">教程</a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '218cd982a52a48b4f4f8',
+    clientSecret: 'fcab375e4428adfd72238d8e7316c320b3ad0855',
+    repo: 'jianghuiguo.github.io',
+    owner: 'JianghuiGuo',
+    admin: ['JianghuiGuo'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://jianghuiguo.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
